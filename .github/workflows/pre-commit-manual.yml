@@ -1,5 +1,5 @@
 ---
-name: 🏃🏼 pre-commit
+name: 🏃🏼 Manual hooks
 
 on:
   push:
