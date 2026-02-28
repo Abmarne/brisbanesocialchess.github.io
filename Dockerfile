@@ -29,7 +29,7 @@ RUN go version && pipx --version && node -v && npm -v && pre-commit --version
 RUN groupadd -r appuser && useradd -m -r -g appuser -d /app -s /bin/bash appuser
 
 WORKDIR /app
-COPY . . 
+COPY . .
 
 RUN npm install && \
     npm run build && \
