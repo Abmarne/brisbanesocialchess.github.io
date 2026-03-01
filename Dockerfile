@@ -18,6 +18,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pipx install pre-commit==4.5.1 && \
     ln -s /root/.local/bin/pre-commit /usr/local/bin/pre-commit
 
+RUN git config --global --add safe.directory "*"
+
 RUN curl -LO https://mirrors.aliyun.com/golang/go${GO_VERSION}.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz && \
     rm go${GO_VERSION}.linux-amd64.tar.gz
