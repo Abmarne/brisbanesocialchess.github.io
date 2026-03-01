@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libstdc++6 && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pipx install pre-commit && \
+RUN pipx install pre-commit==4.5.1 && \
     ln -s /root/.local/bin/pre-commit /usr/local/bin/pre-commit
 
 RUN curl -LO https://mirrors.aliyun.com/golang/go${GO_VERSION}.linux-amd64.tar.gz && \
@@ -31,7 +31,7 @@ RUN groupadd -r appuser && useradd -m -r -g appuser -d /app -s /bin/bash appuser
 WORKDIR /app
 COPY . .
 
-RUN npm install && \
+RUN npm audit fix --force && \
     npm run build && \
     npm cache clean --force && \
     chown -R appuser:appuser /app
