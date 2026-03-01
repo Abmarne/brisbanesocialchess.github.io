@@ -25,4 +25,4 @@ jobs:
         run: docker build -t my-go-precommit .
       - name: 🏃🏿‍♀️ Run Docker container and tests
         run: |
-          docker run --rm -v "$PWD":/app -w /app my-go-precommit
+          docker run --rm -v "$PWD":/app -w /app my-go-precommit pre-commit run --all-files
