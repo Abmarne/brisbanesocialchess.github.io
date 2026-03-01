@@ -31,7 +31,8 @@ RUN groupadd -r appuser && useradd -m -r -g appuser -d /app -s /bin/bash appuser
 WORKDIR /app
 COPY . .
 
-RUN npm run build && \
+RUN npm install && \
+    npm run build && \
     npm cache clean --force && \
     chown -R appuser:appuser /app
 
