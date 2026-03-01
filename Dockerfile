@@ -36,8 +36,6 @@ RUN npm install && \
     npm cache clean --force && \
     chown -R appuser:appuser /app
 
-USER appuser
-
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD pre-commit --version || exit 1
 
